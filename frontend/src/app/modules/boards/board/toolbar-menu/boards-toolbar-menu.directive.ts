@@ -110,7 +110,7 @@ export class BoardsToolbarMenuDirective extends OpContextMenuTrigger {
               .delete(this.board)
               .then(() => {
                 this.BoardCache.clearSome(this.board.id!);
-                this.State.go('^', { flash_message: { type: 'success', message: this.text.deleteSuccessful } });
+                this.State.go('boards.list', { flash_message: { type: 'success', message: this.text.deleteSuccessful } });
               });
           }
 
