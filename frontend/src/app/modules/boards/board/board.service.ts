@@ -91,7 +91,7 @@ export class BoardService {
     if (params.type === 'free') {
       await this.boardsList.addFreeQuery(board, { name: this.text.unnamed_list });
     } else {
-      await this.boardActions.get(params.attribute!).addActionQueries(board);
+      await this.boardActions.get(params.attribute!).addInitialColumnsForAction(board);
     }
 
     await this.save(board);

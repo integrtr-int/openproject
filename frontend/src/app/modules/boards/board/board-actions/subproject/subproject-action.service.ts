@@ -46,7 +46,7 @@ export class BoardSubprojectActionService extends BoardActionService {
 
   // TODO assign subproject to changeset
   assignToWorkPackage(changeset:WorkPackageChangeset, query:QueryResource) {
-    const href = this.getFilterHref(query);
+    const href = this.getActionValueHrefForColumn(query);
     changeset.setValue('project', { href: href });
   }
 

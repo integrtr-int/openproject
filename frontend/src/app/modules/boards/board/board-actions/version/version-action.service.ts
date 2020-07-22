@@ -42,14 +42,14 @@ export class BoardVersionActionService extends BoardActionService {
       .then((form:FormResource) => form.schema.version.writable);
   }
 
-  public addActionQueries(board:Board):Promise<Board> {
+  public addInitialColumnsForAction(board:Board):Promise<Board> {
     return this.withLoadedAvailable()
       .then((results) => {
         return Promise.all<unknown>(
           results.map((version:VersionResource) => {
             const definingName = _.get(version, 'definingProject.name', null);
             if (version.isOpen() && definingName && definingName === this.currentProject.name) {
-              return this.addActionQuery(board, version);
+              return this.addColumnWithActionAttribute(board, version);
             }
 
             return Promise.resolve(board);
@@ -66,7 +66,7 @@ export class BoardVersionActionService extends BoardActionService {
    */
   public getAdditionalListMenuItems(query:QueryResource):Promise<OpContextMenuItem[]> {
     return this
-      .getLoadedFilterValue(query)
+      .getLoadedActionValue(query)
       .then((version:VersionResource) => {
         if (version) {
           return this.buildItemsForVersion(version);
