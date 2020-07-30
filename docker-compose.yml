@@ -15,52 +15,55 @@ x-op-image: &image
 x-op-app: &app
   <<: *image
   <<: *restart_policy
-  environment:
-    - "RAILS_CACHE_STORE=memcache"
-    - "OPENPROJECT_CACHE__MEMCACHE__SERVER=cache:11211"
-    - "OPENPROJECT_RAILS__RELATIVE__URL__ROOT=${OPENPROJECT_RAILS__RELATIVE__URL__ROOT:-}"
-    - "DATABASE_URL=postgres://postgres:p4ssw0rd@db/openproject"
-    - "USE_PUMA=true"
-    # set to true to enable the email receiving feature. See ./docker/cron for more options
-    - "IMAP_ENABLED=false"
+  env_file:
+    - prod.env
   volumes:
     - "opdata:/var/openproject/assets"
   depends_on:
-    - db
     - cache
 
 services:
-  db:
-    image: postgres:10
-    <<: *restart_policy
-    stop_grace_period: "3s"
-    volumes:
-      - "pgdata:/var/lib/postgresql/data"
-    environment:
-      - POSTGRES_PASSWORD=p4ssw0rd
-      - POSTGRES_DB=openproject
-    networks:
-      - backend
-
   cache:
     image: memcached
     <<: *restart_policy
     networks:
       - backend
-
-  proxy:
-    <<: *image
-    <<: *restart_policy
-    command: "./docker/proxy"
+  
+  nginx:
+    image: nginx:1.16-alpine
+    restart: unless-stopped
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     ports:
-      - "8080:80"
-    environment:
-      - APP_HOST=web
-      - "OPENPROJECT_RAILS__RELATIVE__URL__ROOT=${OPENPROJECT_RAILS__RELATIVE__URL__ROOT:-}"
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     depends_on:
-      - web
-    networks:
-      - frontend
+      - certbot
+  
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  
+#  proxy:
+#    <<: *image
+#    <<: *restart_policy
+#    command: "./docker/proxy"
+#    ports:
+#      - "80:80"
+#    environment:
+#      - APP_HOST=web
+#      - "OPENPROJECT_RAILS__RELATIVE__URL__ROOT=${OPENPROJECT_RAILS__RELATIVE__URL__ROOT:-}"
+#    depends_on:
+#      - web
+#    networks:
+#      - frontend
 
   web:
     <<: *app
