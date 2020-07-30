@@ -71,7 +71,7 @@ module OpenProject::CustomStyles
           'main-menu-selected-font-color'                        => "#000000",
           'main-menu-border-color'                               => "#EAEAEA"
         },
-        logo:                                                   'logo_openproject.png'
+        logo:                                                   'integrtr_logo.png'
       },
       {
         name:                                                   'OpenProject Dark',
