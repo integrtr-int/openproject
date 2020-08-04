@@ -50,9 +50,9 @@ class AdminUserSeeder < Seeder
       user.admin = true
       user.login = 'admin'
       user.password = 'admin'
-      user.firstname = 'OpenProject'
+      user.firstname = 'Integrtr'
       user.lastname = 'Admin'
-      user.mail = ENV['ADMIN_EMAIL'].presence || 'admin@example.net'
+      user.mail = ENV['ADMIN_EMAIL'].presence || 'admin@integrtr.com'
       user.mail_notification = User::USER_MAIL_OPTION_ONLY_MY_EVENTS.first
       user.language = I18n.locale.to_s
       user.status = User::STATUSES[:active]
