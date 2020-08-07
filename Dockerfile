@@ -4,7 +4,6 @@ COPY docker/mysql-to-postgres/bin/build /tmp/build-pgloader
 RUN /tmp/build-pgloader && rm /tmp/build-pgloader
 
 FROM ruby:2.6-stretch
-MAINTAINER operations@openproject.com
 
 ENV NODE_VERSION "10.15.0"
 ENV BUNDLER_VERSION "2.0.2"
@@ -32,18 +31,18 @@ COPY --from=pgloader /usr/local/bin/pgloader-ccl /usr/local/bin/
 RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz | tar xzf - -C /usr/local --strip-components=1
 
 RUN apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y  \
-    postgresql-client \
-    poppler-utils \
-    unrtf \
-    tesseract-ocr \
-    catdoc \
-    memcached \
-    postfix \
-    postgresql \
-    apache2 \
-    supervisor && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+  DEBIAN_FRONTEND=noninteractive apt-get install -y  \
+  postgresql-client \
+  poppler-utils \
+  unrtf \
+  tesseract-ocr \
+  catdoc \
+  memcached \
+  postfix \
+  postgresql \
+  apache2 \
+  supervisor && \
+  apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set up pg defaults
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.6/main/pg_hba.conf

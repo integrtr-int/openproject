@@ -54,7 +54,7 @@ module OpenProject::CustomStyles
       {
         name:                                                   'OpenProject Light',
         colors: {
-          'primary-color'                                        => "#1A67A3",
+          'primary-color'                                        => "#354a5f",
           'primary-color-dark'                                   => "#175A8E",
           'alternative-color'                                    => "#138E1B",
           'content-link-color'                                   => "#175A8E",
@@ -71,7 +71,7 @@ module OpenProject::CustomStyles
           'main-menu-selected-font-color'                        => "#000000",
           'main-menu-border-color'                               => "#EAEAEA"
         },
-        logo:                                                   'logo_openproject.png'
+        logo:                                                   'integrtr_logo.png'
       },
       {
         name:                                                   'OpenProject Dark',

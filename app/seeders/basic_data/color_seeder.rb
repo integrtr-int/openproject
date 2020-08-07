@@ -47,7 +47,7 @@ module BasicData
     def data
       [
         { name: I18n.t(:default_color_blue_dark),   hexcode: '#175A8E' },
-        { name: I18n.t(:default_color_blue),        hexcode: '#1A67A3' },
+        { name: I18n.t(:default_color_blue),        hexcode: '#354a5f' },
         { name: I18n.t(:default_color_blue_light),  hexcode: '#00B0F0' },
         { name: I18n.t(:default_color_green_light), hexcode: '#35C53F' },
         { name: I18n.t(:default_color_green_dark),  hexcode: '#339933' },

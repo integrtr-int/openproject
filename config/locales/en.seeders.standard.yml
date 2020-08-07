@@ -30,7 +30,7 @@ en:
     standard:
       demo_data:
         welcome:
-          title: "Welcome to OpenProject!"
+          title: "Welcome to INTEGRTR Projects!"
           text: |
             Select one of the demo projects to get started with some demo data we have prepared for you.
 
@@ -106,9 +106,9 @@ en:
                   - assigned_to
             boards:
               kanban:
-                name: 'Kanban board'
+                name: "Kanban board"
               basic:
-                name: 'Task board'
+                name: "Task board"
             work_packages:
               - subject: Project kick-off
                 description: Plan and execute the project kick-off.
@@ -208,7 +208,7 @@ en:
 
                       **You can:**
                       * add existing users to  a project by typing in their names,
-                      * invite new users to OpenProject by typing in their email address,
+                      * invite new users to INTEGRTR Projects by typing in their email address,
                       * assign a certain role in this project for each user.
 
                       **Visuals:**
@@ -386,7 +386,7 @@ en:
                       ## Deliverables
                     children:
                       - title: Project manual
-                        content: ''
+                        content: ""
           scrum-project:
             name: Scrum project
             identifier: your-scrum-project
@@ -521,9 +521,9 @@ en:
                 hierarchy: true
             boards:
               kanban:
-                name: 'Kanban board'
+                name: "Kanban board"
               basic:
-                name: 'Task board'
+                name: "Task board"
             work_packages:
               - subject: New login screen
                 status: :default_status_in_specification
