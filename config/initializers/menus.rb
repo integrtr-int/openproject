@@ -270,10 +270,10 @@ Redmine::MenuManager.map :admin_menu do |menu|
             last: true,
             icon: 'icon2 icon-info1'
 
-  menu.push :custom_style,
-            { controller: '/custom_styles', action: 'show' },
-            caption:    :label_custom_style,
-            icon: 'icon2 icon-design'
+  # menu.push :custom_style,
+  #           { controller: '/custom_styles', action: 'show' },
+  #           caption:    :label_custom_style,
+  #           icon: 'icon2 icon-design'
 
   menu.push :colors,
             { controller: '/colors', action: 'index' },
