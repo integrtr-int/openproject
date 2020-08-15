@@ -42,7 +42,8 @@ group :opf_plugins do
 	gem 'grids',                                 path: 'modules/grids'
 	gem 'my_page',                               path: 'modules/my_page'
 	gem 'dashboards',                            path: 'modules/dashboards'
-	gem 'openproject-boards',                    path: 'modules/boards'
+# We do not need boards feature since tts behind the ad banner.	
+#	gem 'openproject-boards',                    path: 'modules/boards'
 	gem 'overviews',                             path: 'modules/overviews'
 
 	gem 'openproject-bim',                       path: 'modules/bim'

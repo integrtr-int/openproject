@@ -78,11 +78,6 @@ PATH
       rubyzip (~> 1.2)
 
 PATH
-  remote: modules/boards
-  specs:
-    openproject-boards (1.0.0)
-
-PATH
   remote: modules/costs
   specs:
     openproject-costs (1.0.0)
@@ -1051,7 +1046,6 @@ DEPENDENCIES
   openproject-avatars!
   openproject-backlogs!
   openproject-bim!
-  openproject-boards!
   openproject-costs!
   openproject-documents!
   openproject-github_integration!
