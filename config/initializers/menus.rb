@@ -194,10 +194,10 @@ Redmine::MenuManager.map :admin_menu do |menu|
             icon: 'icon2 icon-custom-fields',
             html: { class: 'custom_fields' }
 
-  menu.push :custom_actions,
-            { controller: '/custom_actions' },
-            caption: :'custom_actions.plural',
-            parent: :admin_work_packages
+  # menu.push :custom_actions,
+  #           { controller: '/custom_actions' },
+  #           caption: :'custom_actions.plural',
+  #           parent: :admin_work_packages
 
   menu.push :attribute_help_texts,
             { controller: '/attribute_help_texts' },
@@ -270,21 +270,21 @@ Redmine::MenuManager.map :admin_menu do |menu|
             last: true,
             icon: 'icon2 icon-info1'
 
-  menu.push :custom_style,
-            { controller: '/custom_styles', action: 'show' },
-            caption:    :label_custom_style,
-            icon: 'icon2 icon-design'
+  # menu.push :custom_style,
+  #           { controller: '/custom_styles', action: 'show' },
+  #           caption:    :label_custom_style,
+  #           icon: 'icon2 icon-design'
 
   menu.push :colors,
             { controller: '/colors', action: 'index' },
             caption:    :'timelines.admin_menu.colors',
             icon: 'icon2 icon-status'
 
-  menu.push :enterprise,
-            { controller: '/enterprises', action: 'show' },
-            caption:    :label_enterprise_edition,
-            icon: 'icon2 icon-headset',
-            if: proc { OpenProject::Configuration.ee_manager_visible? }
+  # menu.push :enterprise,
+  #           { controller: '/enterprises', action: 'show' },
+  #           caption:    :label_enterprise_edition,
+  #           icon: 'icon2 icon-headset',
+  #           if: proc { OpenProject::Configuration.ee_manager_visible? }
 
   menu.push :admin_costs,
             { controller: '/settings', action: 'plugin', id: :openproject_costs },

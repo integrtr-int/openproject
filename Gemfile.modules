@@ -20,10 +20,11 @@ group :opf_plugins do
     # included so that engines can reference OpenProject::Version
     $:.push File.expand_path("../lib", __FILE__)
 
+# Commented gems are due to being behind an ad-banner. We do not need them.
 	gem 'openproject-global_roles',              path: 'modules/global_roles'
 	gem 'openproject-auth_plugins',              path: 'modules/auth_plugins'
 	gem 'openproject-auth_saml',                 path: 'modules/auth_saml'
-	gem 'openproject-openid_connect',            path: 'modules/openid_connect'
+#	gem 'openproject-openid_connect',            path: 'modules/openid_connect'
 	gem 'openproject-documents',                 path: 'modules/documents'
 	gem 'openproject-xls_export',                path: 'modules/xls_export'
 	gem 'reporting_engine',                      path: 'modules/reporting_engine'
@@ -33,16 +34,16 @@ group :opf_plugins do
 	gem 'openproject-pdf_export',                path: 'modules/pdf_export'
 	gem "openproject-backlogs",                  path: 'modules/backlogs'
 	gem 'openproject-avatars',                   path: 'modules/avatars'
-	gem 'openproject-two_factor_authentication', path: 'modules/two_factor_authentication'
+#	gem 'openproject-two_factor_authentication', path: 'modules/two_factor_authentication'
 	gem 'openproject-webhooks',                  path: 'modules/webhooks'
 	gem 'openproject-github_integration',        path: 'modules/github_integration'
-	gem 'openproject-ldap_groups',               path: 'modules/ldap_groups'
+#	gem 'openproject-ldap_groups',               path: 'modules/ldap_groups'
 	gem 'openproject-recaptcha',                 path: 'modules/recaptcha'
 
 	gem 'grids',                                 path: 'modules/grids'
 	gem 'my_page',                               path: 'modules/my_page'
 	gem 'dashboards',                            path: 'modules/dashboards'
-	gem 'openproject-boards',                    path: 'modules/boards'
+#	gem 'openproject-boards',                    path: 'modules/boards'
 	gem 'overviews',                             path: 'modules/overviews'
 
 	gem 'openproject-bim',                       path: 'modules/bim'
