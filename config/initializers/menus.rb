@@ -194,10 +194,10 @@ Redmine::MenuManager.map :admin_menu do |menu|
             icon: 'icon2 icon-custom-fields',
             html: { class: 'custom_fields' }
 
-  menu.push :custom_actions,
-            { controller: '/custom_actions' },
-            caption: :'custom_actions.plural',
-            parent: :admin_work_packages
+  # menu.push :custom_actions,
+  #           { controller: '/custom_actions' },
+  #           caption: :'custom_actions.plural',
+  #           parent: :admin_work_packages
 
   menu.push :attribute_help_texts,
             { controller: '/attribute_help_texts' },
